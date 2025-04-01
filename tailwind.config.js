@@ -1,0 +1,80 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+    darkMode: true,
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+    ],
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            },
+        },
+        colors: {
+            primary: '#5156C1',
+            secondary: '#F88C5C',
+            primaryCustom: '#17243f',
+            grayCustom: '#EAECFC',
+            white: '#FFFFFF',
+            black: '#000000',
+            blue: {
+                50: '#EFF6FF',
+                100: '#DBEAFE',
+                200: '#BFDBFE',
+                300: '#93C5FD',
+                400: '#60A5FA',
+                500: '#3B82F6',
+                600: '#2563EB',
+                700: '#1D4ED8',
+                800: '#1E40AF',
+                900: '#1E3A8A',
+            },
+            gray: {
+                50: '#F9FAFB',
+                100: '#F3F4F6',
+                200: '#E5E7EB',
+                300: '#D1D5DB',
+                400: '#9CA3AF',
+                500: '#6B7280',
+                600: '#4B5563',
+                700: '#374151',
+                800: '#1F2937',
+                900: '#111827',
+            },
+            green: {
+                50: '#ECFDF5',
+                100: '#D1FAE5',
+                200: '#A7F3D0',
+                300: '#6EE7B7',
+                400: '#34D399',
+                500: '#10B981',
+                600: '#059669',
+                700: '#047857',
+                800: '#065F46',
+                900: '#064E3B',
+            },
+            red: {
+                50: '#FEF2F2',
+                100: '#FEE2E2',
+                200: '#FECACA',
+                300: '#FCA5A1',
+                400: '#F87171',
+                500: '#EF4444',
+                600: '#DC2626',
+                700: '#B91C1C',
+                800: '#991B1B',
+                900: '#7F1D1D',
+            },
+            transparent: 'transparent',
+            positive: '#c5fcd4',
+            negative: '#fcd2c5'
+        },
+    },
+    plugins: [],
+};
