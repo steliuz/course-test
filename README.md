@@ -48,7 +48,7 @@ Follow these steps to set up the project:
 
 6. Run database migrations:
    ```bash
-   php artisan migrate
+   php artisan migrate:fresh --seed
    ```
 
 7. Install JavaScript dependencies:
