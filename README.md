@@ -76,6 +76,18 @@ To run the application, follow these steps:
 
 This project uses Laravel with Livewire for building dynamic and reactive interfaces. Ensure both the backend and frontend are running for proper functionality.
 
+## Cuentas de ejemplo
+
+A continuación, se presentan las cuentas de ejemplo disponibles para probar la aplicación:
+
+### Administrador
+- **Email**: `admin@admin.com`
+- **Contraseña**: `password`
+
+### Padre
+- **Email**: `fatherf@father.com`
+- **Contraseña**: `password`
+
 ## Ejemplos de uso de la API
 
 ### Iniciar sesión
@@ -93,8 +105,8 @@ This project uses Laravel with Livewire for building dynamic and reactive interf
 curl -X POST http://127.0.0.1:8000/api/login \
 -H "Content-Type: application/json" \
 -d '{
-  "email": "john.doe@example.com",
-  "password": "securepassword"
+  "email": "admin@admin.com",
+  "password": "password"
 }'
 ```
 
@@ -190,3 +202,5 @@ curl -X POST http://127.0.0.1:8000/api/courses \
   "updated_at": "2023-10-01T12:00:00.000000Z"
 }
 ```
+
+
