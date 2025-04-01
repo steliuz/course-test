@@ -75,3 +75,118 @@ To run the application, follow these steps:
 ## Features
 
 This project uses Laravel with Livewire for building dynamic and reactive interfaces. Ensure both the backend and frontend are running for proper functionality.
+
+## Ejemplos de uso de la API
+
+### Iniciar sesión
+
+**Endpoint**: `POST /api/login`
+
+**Descripción**: Este endpoint permite autenticar a un usuario y obtener un token de acceso.
+
+**Parámetros**:
+- `email` (string, requerido): Correo electrónico del usuario.
+- `password` (string, requerido): Contraseña del usuario.
+
+**Ejemplo de solicitud**:
+```bash
+curl -X POST http://127.0.0.1:8000/api/login \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "john.doe@example.com",
+  "password": "securepassword"
+}'
+```
+
+**Ejemplo de respuesta**:
+```json
+{
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+}
+```
+
+### Obtener todos los cursos
+
+**Endpoint**: `GET /api/courses`
+
+**Descripción**: Este endpoint permite obtener una lista de todos los cursos disponibles.
+
+**Encabezados**:
+- `Authorization` (string, requerido): Token de acceso en el formato `Bearer {token}`.
+
+**Ejemplo de solicitud**:
+```bash
+curl -X GET http://127.0.0.1:8000/api/courses \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+```
+
+**Ejemplo de respuesta**:
+```json
+[
+  {
+    "id": 1,
+    "title": "Curso de Laravel",
+    "description": "Aprende Laravel desde cero",
+    "cost": 49.99,
+    "duration": "10 horas",
+    "modality": "Online",
+    "status": "Activo",
+    "academy_id": 1,
+    "created_at": "2023-10-01T12:00:00.000000Z",
+    "updated_at": "2023-10-01T12:00:00.000000Z"
+  },
+  {
+    "id": 2,
+    "title": "Curso de Vue.js",
+    "description": "Aprende Vue.js avanzado",
+    "cost": 59.99,
+    "duration": "15 horas",
+    "modality": "Presencial",
+    "status": "Activo",
+    "academy_id": 2,
+    "created_at": "2023-10-02T12:00:00.000000Z",
+    "updated_at": "2023-10-02T12:00:00.000000Z"
+  }
+]
+```
+
+### Crear un curso
+
+**Endpoint**: `POST /api/courses`
+
+**Descripción**: Este endpoint permite crear un nuevo curso. Requiere autenticación mediante un token.
+
+**Encabezados**:
+- `Authorization` (string, requerido): Token de acceso en el formato `Bearer {token}`.
+
+**Parámetros**:
+- `title` (string, requerido): Título del curso.
+- `description` (string, opcional): Descripción del curso.
+- `price` (number, requerido): Precio del curso.
+- `academy_id` (integer, requerido): ID de la academia asociada al curso.
+
+**Ejemplo de solicitud**:
+```bash
+curl -X POST http://127.0.0.1:8000/api/courses \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-d '{
+  "title": "Curso de Laravel",
+  "description": "Aprende Laravel desde cero",
+  "price": 49.99,
+  "academy_id": 1
+}'
+```
+
+**Ejemplo de respuesta**:
+```json
+{
+  "id": 1,
+  "title": "Curso de Laravel",
+  "description": "Aprende Laravel desde cero",
+  "price": 49.99,
+  "academy_id": 1,
+  "created_at": "2023-10-01T12:00:00.000000Z",
+  "updated_at": "2023-10-01T12:00:00.000000Z"
+}
+```
