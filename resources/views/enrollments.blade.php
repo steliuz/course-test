@@ -1,3 +1,3 @@
 <x-layouts.dashboard>
-    <livewire:enrollments-list />
+    <livewire:courses.enrollments-list />
 </x-layouts.dashboard>

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\General;
 
 use Livewire\Component;
 use App\Services\MessageService;
 use App\Services\CourseService;
 use Illuminate\Support\Facades\Log;
 use App\Livewire\ToastNotifications;
+use Carbon\Carbon;
 
 class Messages extends Component
 {
@@ -25,7 +26,7 @@ class Messages extends Component
 
     public function mount(MessageService $messageService)
     {
-        $this->messages = $messageService->getAllMessages(); // Already an array
+        $this->messages = $messageService->getAllMessages();
     }
 
     public function openModal()
@@ -77,7 +78,7 @@ class Messages extends Component
 
     public function formatDate($date)
     {
-        return \Carbon\Carbon::parse($date)->format('d/m/Y H:i');
+        return Carbon::parse($date)->format('d/m/Y H:i');
     }
 
     private function resetForm()
@@ -91,7 +92,7 @@ class Messages extends Component
 
     public function render(CourseService $courseService)
     {
-        return view('livewire.messages', [
+        return view('livewire.general.messages', [
             'messages' => $this->messages,
             'courses' => $courseService->getAllCourses(),
         ]);

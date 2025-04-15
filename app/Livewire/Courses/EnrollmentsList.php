@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Courses;
 
 use App\Services\EnrollmentService;
 use Illuminate\Support\Facades\Log;
@@ -69,7 +69,7 @@ class EnrollmentsList extends Component
 
     public function render()
     {
-        return view('livewire.enrollments-list', [
+        return view('livewire.courses.enrollments-list', [
             'enrollments' => $this->enrollments,
         ]);
     }

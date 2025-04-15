@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\General;
 
 use Livewire\Component;
 use App\Services\MessageService;
@@ -21,15 +21,15 @@ class NavbarNotifications extends Component
 
     public function fetchMessages()
     {
-        $this->loading = true; 
+        $this->loading = true;
         $this->messages = $this->messageService->getUserMessages(auth()->user())->toArray();
         Log::info('Fetched messages for user: ', ['user_id' => auth()->user()->id, 'messages' => $this->messages]);
-        $this->loading = false; 
+        $this->loading = false;
     }
 
     public function render()
     {
-        return view('livewire.navbar-notifications');
+        return view('livewire.general.navbar-notifications');
     }
 
 }

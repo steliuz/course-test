@@ -122,5 +122,5 @@
         </div>
     </div>
 
-    <livewire:modal-buy-course />
+    <livewire:courses.modal-buy-course />
 </div>

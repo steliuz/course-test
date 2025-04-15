@@ -8,5 +8,5 @@
             </main>
         </div>
     </div>
-    <livewire:toast-notifications />
+    <livewire:general.toast-notifications />
 </x-layouts.base>

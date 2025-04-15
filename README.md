@@ -70,7 +70,12 @@ To run the application, follow these steps:
    npm run dev
    ```
 
-3. Open your browser and navigate to `http://127.0.0.1:8000`.
+3. Run the tests to ensure everything is working correctly:
+   ```bash
+   php artisan test
+   ```
+
+4. Open your browser and navigate to `http://127.0.0.1:8000`.
 
 ## Features
 
@@ -202,5 +207,6 @@ curl -X POST http://127.0.0.1:8000/api/courses \
   "updated_at": "2023-10-01T12:00:00.000000Z"
 }
 ```
+````
 
 

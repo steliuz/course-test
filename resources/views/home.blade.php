@@ -1,7 +1,7 @@
 <x-layouts.dashboard>
     <div class="container">
         <div>
-            <livewire:courses-list />
+            <livewire:courses.courses-list />
         </div>
     </div>
 </x-layouts.dashboard>

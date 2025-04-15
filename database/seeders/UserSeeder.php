@@ -13,8 +13,14 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
-
-        // Create fathers with a specific role
         User::factory(5)->create(['role' => 'father']);
+
+        User::factory()->create([
+            'name' => 'Super Admin',
+            'email' => 'admin@admin.com',
+            'role' => 'admin',
+            'password' => bcrypt('password123'),
+            'phone' => '1234567890',
+        ]);
     }
 }

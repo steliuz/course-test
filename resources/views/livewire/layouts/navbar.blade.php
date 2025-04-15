@@ -36,7 +36,7 @@
                         placeholder="Buscar...">
                 </div>
 
-                <livewire:navbar-notifications />
+                <livewire:general.navbar-notifications />
 
                 <!-- Profile dropdown -->
                 @if (Auth::check())

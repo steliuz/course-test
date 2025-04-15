@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\General;
 
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
@@ -37,6 +37,6 @@ class ToastNotifications extends Component
 
     public function render()
     {
-        return view('livewire.toast-notifications');
+        return view('livewire.general.toast-notifications');
     }
 }

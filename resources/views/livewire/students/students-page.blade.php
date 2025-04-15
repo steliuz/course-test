@@ -74,6 +74,6 @@
     </div>
 
     <!-- Modals -->
-    <livewire:modal-create-student />
-    <livewire:moda-confirm-delete />
+    <livewire:students.modal-create-student />
+    <livewire:general.moda-confirm-delete />
 </div>

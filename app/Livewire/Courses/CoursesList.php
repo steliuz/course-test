@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Courses;
 
-use App\Models\Academy;
 use Livewire\Component;
 use App\Models\Course as CourseModel;
 use App\Services\CourseService;
@@ -14,7 +13,7 @@ class CoursesList extends Component
     public $academies = [];
     public $courses = [];
 
-    public function mount() 
+    public function mount()
     {
         $courseService = new CourseService();
         $this->courses = $courseService->getCoursesWithAcademies();
@@ -34,6 +33,6 @@ class CoursesList extends Component
 
     public function render()
     {
-        return view('livewire.courses-list');
+        return view('livewire.courses.courses-list');
     }
 }

@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Courses;
 
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use App\Models\Academy;
 use App\Models\Course as CourseModel;
 use App\Services\AcademyService;
-use App\Services\CourseService; // Import the CourseService
+use App\Services\CourseService;
 
 class Course extends Component
 {
     public $academies = [];
     public $courses = [];
     public $selectedItem = null;
-    protected $academyService;
-    protected $courseService;
+    public $activeTab = 'academies';
+    protected AcademyService $academyService;
+    protected CourseService $courseService;
 
     protected $listeners = [
         'academyUpdated' => 'loadAcademies',
@@ -24,11 +24,16 @@ class Course extends Component
         'confirmDeleteCourse' => 'deleteCourse',
         'editItem' => 'editAcademy',
         'editItemCourse' => 'editCourse',
+        'showCourses' => 'showCourses',
     ];
 
 
     public function mount()
     {
+        $this->initialize();
+    }
+
+    public function initialize() {
         $this->academyService = new AcademyService();
         $this->courseService = new CourseService();
         $this->loadAcademies();
@@ -43,7 +48,8 @@ class Course extends Component
 
     public function loadAllCourses()
     {
-        $this->courses = $this->courseService->getAllCourses();
+        $courseService = new CourseService();
+        $this->courses = $courseService->getAllCourses();
     }
 
 
@@ -96,8 +102,9 @@ class Course extends Component
     }
 
     public function deleteCourse($id) {
-        $result = $this->courseService->deleteCourse($id);
-        if ($result['success']) {
+        $courseService = new CourseService();
+        $result = $courseService->deleteCourse($id);
+         if ($result['success']) {
             $this->dispatch('courseDeleted', ['message' => $result['message']]);
             $this->dispatch('showToast', "Curso eliminado exitosamente", 'success', 3000);
         } else {
@@ -107,15 +114,21 @@ class Course extends Component
     }
 
     public function showCourses($academyId)
+
     {
-        $this->courses = $this->courseService->getCoursesByAcademy($academyId);
+        $courseService = new CourseService();
+        $this->activeTab = 'courses';
+        $this->courses = $courseService->getCoursesByAcademy($academyId);
+    }
+
+    public function resetSelection()
+    {
+        $this->activeTab = 'academies';
+        $this->initialize();
     }
 
     public function render()
     {
-        return view('livewire.course', [
-            'academies' => $this->academies,
-            'courses' => $this->courses,
-        ]);
+        return view('livewire.courses.course');
     }
 }

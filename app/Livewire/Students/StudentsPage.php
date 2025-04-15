@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Students;
 
 use App\Services\StudentService;
 use Livewire\Component;
@@ -53,6 +53,6 @@ class StudentsPage extends Component
 
     public function render()
     {
-        return view('livewire.students-page');
+        return view('livewire.students.students-page');
     }
 }

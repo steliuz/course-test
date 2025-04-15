@@ -34,8 +34,8 @@
                                 </div>
                             </div>
                         </td>
-                        
-                        
+
+
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="relative text-center" x-data="{ open: false }">
                                 <button @click="open = !open"

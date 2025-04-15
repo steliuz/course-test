@@ -1,3 +1,3 @@
 <x-layouts.dashboard>
-    <livewire:messages />
+    <livewire:general.messages />
 </x-layouts.dashboard>

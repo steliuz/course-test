@@ -32,7 +32,7 @@ class AcademyService
 
     public function getAllAcademies()
     {
-        return Academy::all();
+        return Academy::with('courses')->get();
     }
 
     public function deleteAcademy($id)

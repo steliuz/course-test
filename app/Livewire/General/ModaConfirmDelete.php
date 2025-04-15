@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\General;
 
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
@@ -41,6 +41,6 @@ class ModaConfirmDelete extends Component
 
     public function render()
     {
-        return view('livewire.moda-confirm-delete');
+        return view('livewire.general.modal-confirm-delete');
     }
 }

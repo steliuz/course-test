@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Courses;
 
 use Livewire\Component;
 use App\Models\Course;
@@ -82,6 +82,6 @@ class ModalCreateCourse extends Component
     public function render()
     {
         $this->academies = Academy::all();
-        return view('livewire.modal-create-course');
+        return view('livewire.courses.modal-create-course');
     }
 }

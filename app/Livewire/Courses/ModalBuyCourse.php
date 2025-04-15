@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Courses;
 
 use App\Models\Student;
 use App\Services\EnrollmentService;
@@ -73,6 +73,6 @@ class ModalBuyCourse extends Component
 
     public function render()
     {
-        return view('livewire.modal-buy-course');
+        return view('livewire.courses.modal-buy-course');
     }
 }

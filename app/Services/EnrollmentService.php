@@ -46,7 +46,7 @@ class EnrollmentService
             $payment->save();
 
             $enrollment = $payment->enrollment;
-            $enrollment->status = $status;
+            $enrollment->status = $status === 'accepted' ? 'active' : ($status === 'rejected' ? 'inactive' : 'pending');
             $enrollment->save();
         });
     }

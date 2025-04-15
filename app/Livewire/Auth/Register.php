@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Auth;
 
 use Livewire\Component;
 use App\Services\AuthService;
@@ -11,6 +11,7 @@ class Register extends Component
     public $name;
     public $email;
     public $password;
+    public $phone;
 
     protected $authService;
 
@@ -23,11 +24,11 @@ class Register extends Component
     {
         $this->validate(RegisterRules::rules());
 
-        $user = $this->authService->register($this->name, $this->email, $this->password);
+        $user = $this->authService->register($this->name, $this->email, $this->password, $this->phone);
 
         if ($user) {
             session()->flash('message', 'Registro y login exitoso.');
-            return redirect()->route('courses-availaible');
+            return redirect()->route('courses.courses-availaible');
         }
 
         $this->addError('email', 'Hubo un problema con el registro.');
@@ -35,6 +36,6 @@ class Register extends Component
 
     public function render()
     {
-        return view('livewire.register');
+        return view('livewire.auth.register');
     }
 }

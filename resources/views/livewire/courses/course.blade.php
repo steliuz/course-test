@@ -3,10 +3,10 @@
         <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-6">Gestión de Academias y Cursos</h2>
 
 
-        <div x-data="{ activeTab: 'academies' }">
+        <div x-data="{ activeTab: @entangle('activeTab').live}">
             <div class="border-b border-gray-200 dark:border-gray-700">
                 <nav class="flex -mb-px space-x-8" aria-label="Tabs">
-                    <button @click="activeTab = 'academies'"
+                    <button wire:click="resetSelection"
                         :class="activeTab === 'academies' ? 'border-primary text-primary' :
                             'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                         class="py-4 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 transition-colors duration-200">
@@ -58,7 +58,7 @@
                     x-transition:leave="transition ease-in duration-200"
                     x-transition:leave-start="opacity-100 transform translate-y-0"
                     x-transition:leave-end="opacity-0 transform translate-y-4">
-                    <livewire:table-component-courses :items="$academies" type="academy" :key="'academies-' . now()->timestamp" />
+                    <livewire:courses.table-component-courses :items="$academies" type="academy" :key="'academies-' . now()->timestamp" />
                 </div>
 
                 <div x-show="activeTab === 'courses'" x-transition:enter="transition ease-out duration-300"
@@ -67,13 +67,13 @@
                     x-transition:leave="transition ease-in duration-200"
                     x-transition:leave-start="opacity-100 transform translate-y-0"
                     x-transition:leave-end="opacity-0 transform translate-y-4">
-                    <livewire:table-component-courses :items="$courses" type="course" :key="'courses-' . now()->timestamp" />
+                    <livewire:courses.table-component-courses :items="$courses" type="course" :key="'courses-' . now()->timestamp" />
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modals -->
-    <livewire:modal-create-academy />
-    <livewire:modal-create-course />
+    <livewire:courses.modal-create-academy />
+    <livewire:courses.modal-create-course />
 </div>

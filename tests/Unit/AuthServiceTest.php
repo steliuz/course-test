@@ -53,20 +53,22 @@ class AuthServiceTest extends TestCase
         $result = $this->authService->register(
             'Test User',
             'test@example.com',
-            'password123'
+            'password123',
+            '+568398789389'
         );
 
         $this->assertDatabaseHas('users', [
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'role' => 'user'
+            'role' => 'father',
+            'phone' => '+568398789389'
         ]);
 
         $this->assertTrue(Auth::check());
         $this->assertEquals($result->id, Auth::id());
         $this->assertEquals('Test User', $result->name);
         $this->assertEquals('test@example.com', $result->email);
-        $this->assertEquals('user', $result->role);
+        $this->assertEquals('father', $result->role);
     }
 
     public function test_register_hashes_password()
@@ -74,9 +76,10 @@ class AuthServiceTest extends TestCase
         $result = $this->authService->register(
             'Test User',
             'test@example.com',
-            'password123'
+            'password123',
+            '+568398789389'
         );
 
         $this->assertTrue(Hash::check('password123', $result->password));
     }
-} 
+}

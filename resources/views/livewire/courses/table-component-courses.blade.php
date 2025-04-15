@@ -26,7 +26,7 @@
         </thead>
         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
             @forelse ($items as $item)
-                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
+                <tr wire:key="item-{{ $item->id }}" class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
                     @if ($type === 'academy')
                         <td class="px-6 py-4 whitespace-nowrap">{{ $item->name }} </td>
                         <td class="px-6 py-4">{{ $item->description }}</td>
@@ -40,7 +40,7 @@
                             <div class="text-center">
                                 <span
                                     class="px-3 py-2 inline-flex text-xs leading-5 font-bold rounded-full bg-blue-100 text-blue-800">
-                                    {{ $item->courses_count }}
+                                    {{ $item->courses->count() }}
                                 </span>
                             </div>
                         </td>
@@ -140,5 +140,5 @@
             @endforelse
         </tbody>
     </table>
-    <livewire:moda-confirm-delete />
+    <livewire:general.moda-confirm-delete />
 </div>

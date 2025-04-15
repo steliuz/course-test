@@ -1,3 +1,3 @@
 <x-layouts.dashboard>
-    <livewire:students-page />
+    <livewire:students.students-page />
 </x-layouts.dashboard>

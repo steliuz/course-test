@@ -17,7 +17,6 @@ class MessageService
 
     public function createMessage($data)
     {
-        Log::info('Creating message with data: ', $data);
         $message = Message::create([
             'title' => $data['title'],
             'content' => $data['content'],
@@ -34,8 +33,6 @@ class MessageService
                 ]);
             }
         } elseif ($data['type'] === 'Curso' && isset($data['course_id'])) {
-            Log::info('Attaching all users to the message for course_id: ' . $data['course_id']);
-            Log::info('Attaching all users to the message for type: ' . $data['type']);
 
             $enrollments = Enrollment::where('course_id', $data['course_id'])
                 ->where('status', 'active')
@@ -45,7 +42,6 @@ class MessageService
 
             foreach ($enrollments as $enrollment) {
                 $student = Student::find($enrollment->student_id);
-                Log::info('Student found: ', $student->toArray());
                 $father = $student->father;
 
                 if ($father) {
@@ -58,7 +54,6 @@ class MessageService
             }
         } elseif ($data['type'] === 'Edad') {
             $students = Student::whereYear('date_of_birth', '=', now()->subYears($data['age'])->year)->get();
-            Log::info('Students found for age: ', $students->toArray());
 
             foreach ($students as $student) {
             $father = $student->father;
@@ -84,7 +79,7 @@ class MessageService
                 ->get();
         }
 
-        return collect(); // Return an empty collection for admins
+        return collect();
     }
 
     public function resendMessage($messageId)

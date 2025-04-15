@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Students;
 
 use App\Models\Student;
 use Livewire\Component;
@@ -96,6 +96,6 @@ class ModalCreateStudent extends Component
     public function render()
     {
         $this->father_auth_id = auth()->user()->id;
-        return view('livewire.modal-create-student');
+        return view('livewire.students.modal-create-student');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Courses;
 
 use Livewire\Component;
 use App\Services\AcademyService;
@@ -74,6 +74,6 @@ class ModalCreateAcademy extends Component
 
     public function render()
     {
-        return view('livewire.modal-create-academy');
+        return view('livewire.courses.modal-create-academy');
     }
 }

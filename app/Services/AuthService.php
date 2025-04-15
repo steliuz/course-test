@@ -14,19 +14,20 @@ class AuthService
             session()->regenerate();
             return true;
         }
-        
+
         return false;
     }
 
-    public function register($name, $email, $password)
+    public function register($name, $email, $password, $phone)
     {
         $user = User::create([
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password),
-            'role' => 'user'
+            'role' => 'father',
+            'phone' => $phone
         ]);
-        
+
         Auth::login($user);
         session()->regenerate();
         return $user;

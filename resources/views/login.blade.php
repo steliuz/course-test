@@ -1,3 +1,3 @@
 <x-layouts.app>
-  <livewire:login />
+  <livewire:auth.login />
 </x-layouts.app>

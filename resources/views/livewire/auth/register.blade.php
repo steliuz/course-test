@@ -36,6 +36,18 @@
                 @error('password') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
             </div>
 
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono</label>
+                <input
+                    id="phone"
+                    type="tel"
+                    wire:model="phone"
+                    class="mt-1 w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200"
+                />
+                @error('phone') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
+            </div>
+
+
             <button
                 type="submit"
                 class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
